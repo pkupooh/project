@@ -1,0 +1,1 @@
+select * from gowid-gcs-dev.tracker_dictionary.dic_pgsales;
