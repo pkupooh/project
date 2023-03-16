@@ -1,0 +1,10 @@
+PyMySQL==1.0.2
+pandas==1.4.3
+pdf2image==1.16.0
+google-cloud-bigquery==3.2.0
+google-cloud-storage==2.4.0
+google-cloud-vision==3.1.1
+Jinja2==3.1.2
+db-dtypes==1.0.2
+boto3==1.24.66
+Pillow==9.2.0

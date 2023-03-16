@@ -1,0 +1,88 @@
+{
+    "action": {
+        "project": {
+            "dev": "gowid-gcs-dev",
+            "prd": "gowid-gcs-prd"
+        }
+    },
+    "bucket": {
+        "dev": "gowid-gcs-dev-ocr",
+        "prd": "gowid-gcs-prd-ocr"
+    },
+    "checkpoint": {
+        "name": "gcs_ocr_shareholders",
+        "dataset": "gcs_shareholders",
+        "project": {
+            "dev": "gowid-gcs-dev",
+            "prd": "gowid-gcs-prd"
+        },
+        "clustering_fields": ["corporate_registration_number"],
+        "schema": [
+            {
+                "name": "reference_date",
+                "type": "DATE",
+                "description": "테이블 파티셔닝 키",
+                "mode": "REQUIRED"
+            },
+            {
+                "name": "corporate_registration_number",
+                "type": "STRING",
+                "description": "사업자등록번호",
+                "mode": "REQUIRED"
+            },
+            {
+                "name": "ocr_text",
+                "type": "STRING",
+                "description": "ocr 결과",
+                "mode": "REPEATED"
+            }
+        ]
+    },
+    "target": {
+        "name": "gcs_is_invested_by_qxi",
+        "dataset": "gcs_classification",
+        "project": {
+            "dev": "gowid-gcs-dev",
+            "prd": "gowid-gcs-prd"
+        },
+        "clustering_fields": [
+            "corporate_registration_number",
+            "investor_name",
+            "is_invested_by_qii",
+            "is_invested_by_qoi"
+        ],
+        "schema": [
+            {
+                "name": "reference_date",
+                "type": "DATE",
+                "description": "테이블 파티셔닝 키",
+                "mode": "REQUIRED"
+            },
+            {
+                "name": "corporate_registration_number",
+                "type": "STRING",
+                "description": "사업자등록번호",
+                "mode": "REQUIRED"
+            },
+            {
+                "name": "investor_name",
+                "type": "STRING",
+                "description": "투자자명",
+                "mode": "REQUIRED"
+            },
+            {
+                "name": "is_invested_by_qii",
+                "type": "BOOLEAN",
+                "description": "QII 투자 여부",
+                "mode": "REQUIRED"
+            },
+            {
+                "name": "is_invested_by_qoi",
+                "type": "BOOLEAN",
+                "description": "QOI 투자 여부",
+                "mode": "REQUIRED"
+            }
+        ]
+    }
+}
+

@@ -1,0 +1,1 @@
+DELETE FROM `{{ project }}.gcs_shareholders.gcs_ocr_shareholders` WHERE reference_date = '{{ reference_date }}'
